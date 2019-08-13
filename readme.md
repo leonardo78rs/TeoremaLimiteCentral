@@ -1,28 +1,28 @@
 
 
-# Inferência estatítisca: Teorema do Limite Central
+# InferÃªncia estatÃ­tisca: Teorema do Limite Central
 
 ## O Teorema 
 
 
-O Teorema do limite central afirma que quando o tamanho da amostra aumenta, a distribuição amostral da sua média aproxima-se cada vez mais de uma distribuição normal. Este resultado é fundamental para a inferência estatística. 
+O Teorema do limite central afirma que quando o tamanho da amostra aumenta, a distribuiÃ§Ã£o amostral da sua mÃ©dia aproxima-se cada vez mais de uma distribuiÃ§Ã£o normal. Este resultado Ã© fundamental para a inferÃªncia estatÃ­stica. 
 
-Qualquer que seja a distribuição da variável de interesse para grande amostras, a distribuição das médias amostrais serão aproximadamente normalmente distribuídas, e tenderão a uma distribuição normal à medida que o tamanho de amostra crescer. 
+Qualquer que seja a distribuiÃ§Ã£o da variÃ¡vel de interesse para grande amostras, a distribuiÃ§Ã£o das mÃ©dias amostrais serÃ£o aproximadamente normalmente distribuÃ­das, e tenderÃ£o a uma distribuiÃ§Ã£o normal Ã  medida que o tamanho de amostra crescer. 
 
-A sua utilidade é de estimar os parâmetros como a média populacional ou o desvio padrão da média populacional a partir de uma amostra aleatória dessa população. 
+A sua utilidade Ã© de estimar os parÃ¢metros como a mÃ©dia populacional ou o desvio padrÃ£o da mÃ©dia populacional a partir de uma amostra aleatÃ³ria dessa populaÃ§Ã£o. 
 
-## Observações Gerais da Simulação
+## ObservaÃ§Ãµes Gerais da SimulaÃ§Ã£o
 
-Vamos investigar a distribuição exponencial com o R, e depois comparar com o Teorema do Limite Central. 
+Vamos investigar a distribuiÃ§Ã£o exponencial com o R, e depois comparar com o Teorema do Limite Central. 
 
-A distribuição exponencial pode ser simulada com R utilizando rexp(n, lambda), onde a variável lambda é a taxa de parâmetro. 
+A distribuiÃ§Ã£o exponencial pode ser simulada com R utilizando rexp(n, lambda), onde a variÃ¡vel lambda Ã© a taxa de parÃ¢metro. 
 
-A média da distribuição exponencial é 1/lambda, bem como o desvio padrão também é 1/lambda.
+A mÃ©dia da distribuiÃ§Ã£o exponencial Ã© 1/lambda, bem como o desvio padrÃ£o tambÃ©m Ã© 1/lambda.
 
-Definindo lambda = 0.2 para todas as simulações, vamos investigar a distribuição das médias de 40 exponenciais, para isto vamos precisar de milhares de simulações. 
+Definindo lambda = 0.2 para todas as simulaÃ§Ãµes, vamos investigar a distribuiÃ§Ã£o das mÃ©dias de 40 exponenciais, para isto vamos precisar de milhares de simulaÃ§Ãµes. 
 
 
-## Simulações (1000 valores aleatórios para 40 exp)
+## SimulaÃ§Ãµes (1000 valores aleatÃ³rios para 40 exp)
 
 
 ```r
@@ -31,7 +31,7 @@ library(ggplot2)
 lambda <- 0.2
 n <- 40                # exponenciais
 QuantSimul <- 1000     # quantidade de testes
-set.seed(1507446545)   # setando o 'seed' para ser reproduzível 
+set.seed(1507446545)   # setando o 'seed' para ser reproduzÃ­vel 
 # Rodando em N versus QuantSimul 
 ExpDistrib      <- matrix(data=rexp(n * QuantSimul, lambda), nrow=QuantSimul)
 ExpDistribMedias <- data.frame(means=apply(ExpDistrib, 1, mean))
@@ -39,11 +39,11 @@ ExpDistribMedias <- data.frame(means=apply(ExpDistrib, 1, mean))
 
 ![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png)
 
-## Obtendo Amostra média versus média teórica 
+## Obtendo Amostra mÃ©dia versus mÃ©dia teÃ³rica 
 
-Veja que a média esperada $\mu$ da distribuição exponecial da taxa $\lambda$ é 
+Veja que a mÃ©dia esperada $\\mu$ da distribuiÃ§Ã£o exponecial da taxa $\\lambda$ Ã© 
 
-$\mu= \frac{1}{\lambda}$ 
+$\\mu= \\frac{1}{\\lambda}$ 
 
 
 ```r
@@ -55,7 +55,7 @@ mu
 ## [1] 5
 ```
 
-Sendo $\bar X$ a média média da amostra de 1000 simulações de 40 distribuições aleatórias. 
+Sendo $\bar X$ a mÃ©dia mÃ©dia da amostra de 1000 simulaÃ§Ãµes de 40 distribuiÃ§Ãµes aleatÃ³rias. 
 
 ```r
 GrandMeans <- mean(ExpDistribMedias$means)
@@ -66,13 +66,13 @@ GrandMeans
 ## [1] 5.020541
 ```
 
-A média esperada é muito próxima da média da amostra.
+A mÃ©dia esperada Ã© muito prÃ³xima da mÃ©dia da amostra.
 
-## Variância da Amostra versus Variância Teórica
+## VariÃ¢ncia da Amostra versus VariÃ¢ncia TeÃ³rica
 
-O desvio padrão esperado $\sigma$ de uma distribuição exponencial da taxa $\lambda$ é
+O desvio padrÃ£o esperado $\sigma$ de uma distribuiÃ§Ã£o exponencial da taxa $\lambda$ Ã©
 
-$\sigma = \frac{1/\lambda}{\sqrt{n}}$ 
+$\\sigma = \\frac{1/\\lambda}{\\sqrt{n}}$ 
 
 
 
@@ -85,7 +85,7 @@ sd
 ## [1] 0.7905694
 ```
 
-A $Variancia$ do desvio padrão $\sigma$ é
+A $Variancia$ do desvio padrÃ£o $\sigma$ Ã©
 
 $Variancia = \sigma^2$ 
 
@@ -99,9 +99,9 @@ Variance
 ## [1] 0.625
 ```
 
-- $Variancia_x$ é a variância da média da amostra de 1000 simulações de 40 distribuições aleatórias;  
+- $Variancia_x$ Ã© a variÃ¢ncia da mÃ©dia da amostra de 1000 simulaÃ§Ãµes de 40 distribuiÃ§Ãµes aleatÃ³rias;  
 
-- $\sigma_x$ é o correspondente desvio padrão.
+- $\sigma_x$ Ã© o correspondente desvio padrÃ£o.
 
 ```r
 sd_x <- sd(ExpDistribMedias$means)
@@ -121,11 +121,11 @@ Variance_x
 ## [1] 0.6314825
 ```
 
-Os desvios padrões estão muito próximos, praticamente iguais.
+Os desvios padrÃµes estÃ£o muito prÃ³ximos, praticamente iguais.
 
-## Distribuição e população média 
+## DistribuiÃ§Ã£o e populaÃ§Ã£o mÃ©dia 
 
-A população média e o desvio padrão com uma distribuição normal dos valores esperados:
+A populaÃ§Ã£o mÃ©dia e o desvio padrÃ£o com uma distribuiÃ§Ã£o normal dos valores esperados:
 
 
 ```r
@@ -142,10 +142,10 @@ ggplot(data = ExpDistribMedias, aes(x = means)) +
 ![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8-1.png)
 
 
-De acordo com o gráfico, a distribuição calculada das médias das distribuições exponenciais aleatórias da amostra (em azul) sobrepõe a distribuição normal dos valores esperados com base na variável lambda (em vermelho).
+De acordo com o grÃ¡fico, a distribuiÃ§Ã£o calculada das mÃ©dias das distribuiÃ§Ãµes exponenciais aleatÃ³rias da amostra (em azul) sobrepÃµe a distribuiÃ§Ã£o normal dos valores esperados com base na variÃ¡vel lambda (em vermelho).
 
 
-## Comparando tamanho de amostras diferentes (Lembrando que o teorema é valido para grandes amostras)
+## Comparando tamanho de amostras diferentes (Lembrando que o teorema Ã© valido para grandes amostras)
 
 
 
@@ -223,7 +223,7 @@ ggplot(data = ExpDistribMedias, aes(x = means)) +
 
 ![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9-4.png)
 
-## Referências: 
+## ReferÃªncias: 
 
 Wikipedia: https://pt.wikipedia.org/wiki/Teorema_central_do_limite 
 
