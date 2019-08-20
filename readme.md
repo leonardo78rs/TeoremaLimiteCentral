@@ -1,6 +1,6 @@
 
 
-# Inferência estatítisca: Teorema do Limite Central
+# Inferência estatística: Teorema do Limite Central
 
 ## O Teorema 
 
@@ -222,6 +222,13 @@ ggplot(data = ExpDistribMedias, aes(x = means)) +
 ```
 
 ![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9-4.png)
+
+## Finalização:
+Através de simples gráficos e simulações podemos visualizar como o Teorema do Limite Central se comporta a medida que o tamanho de amostra cresce.
+
+Além de servir de base para estimarmos algum parâmetro a partir das médias populacionais também pode nos ser útil para ajudar na avaliação do tamanho ou qualidade da amostra que estamos utilizando.
+
+Os dados, gráficos, markdown, código fonte foram disponibilizado no github, link: https://github.com/leonardo78rs/TeoremaLimiteCentral
 
 ## Referências: 
 
